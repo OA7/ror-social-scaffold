@@ -1,6 +1,19 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+  <h2><%= "Name: #{@user.name}" %>  <%= friend_request_link(@user) %></h2>
   <article class="timeline">
+  <div class="lists">
+  <article class="timeline">
+      <h3>Friends:</h3>
+      <% @friends.each do |friend| %>
+        <ul class="posts">
+          <li><%= link_to friend.name, friend, class: 'name-links' %>  
+            <%#= link_to 'Unfriend', user_unfriend_path({friend_id: friend.id, user_id: current_user.id}) %>
+          </li>
+        </ul>
+      <% end %>  
+  </article>
+  <%= render_friends %>
+ </div>
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>

@@ -26,10 +26,11 @@ class User < ApplicationRecord
     friends_array
   end
 
+
   def confirm_friend(user)
-    friendshipz = inverse_friendships.find { |friendship| friendship.user == user if friendship.status == -1 }
-    friendshipz.status = 1
-    friendshipz.save
+    friendship = incoming_friendships.find_by(user_id: user)
+    friendship.update(status: 1)
+    Friendship.create(user: friendship.friend, friend: friendship.user, status: 1)
   end
 
 

@@ -16,9 +16,8 @@ class User < ApplicationRecord
   has_many :pending_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: 'user_id'
   has_many :pending_friends, through: :pending_friendships, source: :friend
 
-  has_many :incoming_friendships, -> { where(status: -1)}, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :incoming_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: 'friend_id'
   has_many :friend_requests, through: :incoming_friendships, source: :user
-
 
   def friends
     friends_array = []
@@ -32,6 +31,7 @@ class User < ApplicationRecord
     friendshipz.status = 1
     friendshipz.save
   end
+
 
   def friend?(user)
     friends.include?(user)

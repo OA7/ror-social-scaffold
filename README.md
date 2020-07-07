@@ -52,9 +52,9 @@ Also, you can request for a feature to be added.
 
 👤 **Osong Agberndifor**
 
-- Github: [@githubhandle](https://github.com/OA7)
-- Twitter: [@twitterhandle](https://twitter.com/Osong17)
-- Linkedin: [linkedin](https://linkedin.com/osong-agberndifor)
+- Github: [OA7](https://github.com/OA7)
+- Twitter: [@Osong17](https://twitter.com/Osong17)
+- Linkedin: [Osong Agberndifor](https://linkedin.com/osong-agberndifor)
 
 ## 🤝 Contributing
 
@@ -67,7 +67,7 @@ Feel free to check the [issues page](https://github.com/OA7/ror-social-scaffold/
 Give a ⭐️ if you like this project!
 
 # Acknowledgments
-- Microverse
+- [Microverse](https://www.microverse.org/)
 - https://github.com/microverseinc/ror-social-scaffold
 
 

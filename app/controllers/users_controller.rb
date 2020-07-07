@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @posts = @user.posts.ordered_by_most_recent
     @pending_friends = @user.pending_friends
     @friend_requests = @user.friend_requests
-    @friends = @user.friends
+    @friends = @user.friends.uniq
   end
 
   def create_friend

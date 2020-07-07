@@ -31,4 +31,8 @@ module ApplicationHelper
   def render_friends
     render 'friends' if actual_user
   end
+
+  def render_friends_posts(user)
+    render 'friendspost' if user.friends.include?(current_user)
+  end
 end

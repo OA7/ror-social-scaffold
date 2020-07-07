@@ -13,9 +13,11 @@ class User < ApplicationRecord
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
 
-  # status = 1 --> Friends
-  # status = 0 --> Not Friends
-  # status = -1 --> Pending Friends
+  has_many :pending_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :pending_friends, through: :pending_friendships, source: :friend
+
+  has_many :incoming_friendships, -> { where(status: -1) }, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :friend_requests, through: :incoming_friendships, source: :user
 
   def friends
     friends_array = []
@@ -24,31 +26,17 @@ class User < ApplicationRecord
     friends_array
   end
 
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user if friendship.status == -1 }.compact
-  end
-
-  def pending_friends
-    pending_friends_array = []
-    friendships.map { |friendship| pending_friends_array << friendship.friend if friendship.status == -1 }.compact
-    pending_friends_array
-  end
 
   def confirm_friend(user)
-    friendshipz = inverse_friendships.find { |friendship| friendship.user == user if friendship.status == -1 }
-    friendshipz.status = 1
-    friendshipz.save
+    friendship = incoming_friendships.find_by(user_id: user)
+    friendship.update(status: 1)
+    Friendship.create(user: friendship.friend, friend: friendship.user, status: 1)
   end
+
 
   def friend?(user)
     friends.include?(user)
   end
-
-  # def unfriend(user)
-  #   friendship = inverse_friendships.find{|friendship| friendship.user == user if friendship.status == 1}
-  #   friendship.status = 0
-  #   friendship.save
-  # end
 
   def reject_friend_request(user)
     friendshipz = inverse_friendships.find { |friendship| friendship.user == user if friendship.status == -1 }

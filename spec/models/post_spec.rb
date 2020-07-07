@@ -14,7 +14,7 @@ RSpec.describe Post, type: :model do
     Friendship.create(
       user_id: user1.id,
       friend_id: user2.id,
-      status: true
+      status: 1
     )
   end
 
@@ -35,6 +35,15 @@ RSpec.describe Post, type: :model do
 
     it 'has many likes' do
       expect(post).to respond_to(:likes)
+    end
+  end
+
+  describe 'unit tests' do
+    it "returns an array of post objects for the current user's friends" do
+      friendship
+      Post.create(content: 'This is a post', user_id: user1.id)
+      result = Post.timeline_posts(user2)
+      expect(result).to match_array(user1.posts.last)
     end
   end
 end

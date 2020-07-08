@@ -1,85 +1,77 @@
-# Scaffold for social media app with Ruby on Rails
+# SOCIAL MEDIA WEBSITE
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+In this Ruby on Rails project, we have created a web application in which users can sign up, create posts, send friend requests to other users, leave comment to other posts and also like posts.
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
-
-## Live Demo
-
-TBA
-
-
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
+- Ruby on Rails
+- HTML
+- CSS
 
 ### Prerequisites
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+- Ruby: 2.6.3
+- Rails: 5.2.3
+- Postgres: >=9.5
 
-### Setup
+## Live Demo
 
-Instal gems with:
-
-```
-bundle install
-```
-
-Setup database with:
-
-```
-   rails db:create
-   rails db:migrate
-```
+[My App](https://serene-spire-25744.herokuapp.com/)
 
 
+# Getting Started
 
-### Usage
+To get a local copy up and running follow these simple example steps.
 
-Start server with:
+- Open a terminal or command prompt interface on your machine
+- Clone the project unto your local machine: `git clone https://github.com/OA7/ror-social-scaffold.git`
+- From your terminal enter the project directory using `ror-social-scaffold` 
 
-```
-    rails server
-```
+# Instructions
 
-Open `http://localhost:3000/` in your browser.
+- Run `bundle install`
+- Run `rails db:create && rails db:migrate`
+- Run ` rails server ` or ` rails s ` on your terminal to start the integrated ruby server.
+- Open your web browser and go to ` localhost:3000 `, to see that the rails sever is up and running.
+- Enjoy the app.
 
-### Run tests
+## Associations
+- Users signing up, creating posts, send friend requests to other users, leave comment to other people's posts and also like posts.
 
-```
-    rpsec --format documentation
-```
+## Automated Tests With RSpec
+- Used RSpec for browser-side test.
+- Used Capybara gem for client-side(integration) tests.
+- run `rspec` in your terminal test the project.
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
+## Feature Section
+This is an open source project. Feel free to add your feedback. If, for any reason, this project doesn't work as supposed to be in your computer, create an issue so I can help you out with it.
+Also, you can request for a feature to be added.
 
-### Deployment
-
-TBA
 
 ## Authors
 
-TBA
+👤 **Osong Agberndifor**
+
+- Github: [OA7](https://github.com/OA7)
+- Twitter: [@Osong17](https://twitter.com/Osong17)
+- Linkedin: [Osong Agberndifor](https://linkedin.com/osong-agberndifor)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/OA7/ror-social-scaffold/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
+# Acknowledgments
+- [Microverse](https://www.microverse.org/)
+- https://github.com/microverseinc/ror-social-scaffold
 
-TBA
 
-## 📝 License
+# License
+This project is MIT licensed
 
-TBA
 
